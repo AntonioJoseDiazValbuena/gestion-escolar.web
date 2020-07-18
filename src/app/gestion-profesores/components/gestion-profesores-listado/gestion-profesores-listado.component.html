@@ -1,0 +1,21 @@
+<div>
+  <section>
+    <h1>Gestión de profesores</h1>
+    <button (click)="registrarProfesor()">Registrar profesor</button>
+  </section>
+  <section>
+    <div>
+      <div>Nombre del profesor</div>
+      <div>Materias que enseña</div>
+    </div>
+    <div *ngFor="let profesor of profesores">
+      <div>{{profesor.nombre}}</div>
+      <div *ngFor="let materia of profesor.materias">
+        <div>{{materia.nombre}}</div>
+      </div>
+      <button>Agregar materia</button>
+      <button>Eliminar materia</button>
+    </div>
+    <button>Retirar profesor</button>
+  </section>
+</div>

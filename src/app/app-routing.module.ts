@@ -9,7 +9,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('src/app/gestion-estudiantes/gestion-estudiantes.module').then(m => m.GestionEstudiantesModule)
-  }
+  },
+  {
+    path: '',
+    loadChildren: () => import('src/app/gestion-profesores/gestion-profesores.module').then(m => m.GestionProfesoresModule)
+  },
 ];
 
 @NgModule({

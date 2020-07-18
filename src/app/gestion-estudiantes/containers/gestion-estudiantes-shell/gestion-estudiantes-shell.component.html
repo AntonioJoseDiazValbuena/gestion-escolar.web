@@ -1,4 +1,6 @@
+<button routerLink="../">Volver</button>
 <app-gestion-estudiantes-listado
-  *ngIf="(nuevo$ | async) === false && (editandoNotas$ | async) === false && (editandoMaterias$ | async) === false">
+  *ngIf="(nuevo$ | async) === false && (editandoNotas$ | async) === false && (editandoMaterias$ | async) === false"
+  [estudiantes]="estudiantes$ | async" (modificarPrimerPeriodo)="modificarPrimerPeriodo($event)"
+  (modificarSegundoPeriodo)="modificarSegundoPeriodo($event)" (modificarTercerPeriodo)="modificarTercerPeriodo($event)">
 </app-gestion-estudiantes-listado>
-me la pelan

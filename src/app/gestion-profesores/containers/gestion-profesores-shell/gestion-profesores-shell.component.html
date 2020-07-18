@@ -1,0 +1,4 @@
+<button routerLink="../">Volver</button>
+<app-gestion-profesores-listado [nuevoProfesor]="nuevoProfesor()" *ngIf="(nuevoProfesor$ | async) === false">
+</app-gestion-profesores-listado>
+<app-gestion-profesores-formulario *ngIf="nuevoProfesor$ | async"></app-gestion-profesores-formulario>

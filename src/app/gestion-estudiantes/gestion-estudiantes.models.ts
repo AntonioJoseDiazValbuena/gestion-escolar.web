@@ -1,5 +1,7 @@
+import { Profesores } from '../gestion-profesores/gestion-profesores.models';
+
 export interface Estudiante {
-  numeroIdentificacion: number;
+  tarjetaIdentidad: number;
   nombre: string;
   materias: MateriasYCalificaciones;
 }
@@ -7,8 +9,10 @@ export interface Estudiante {
 export interface MateriaYCalificacion {
   id: string;
   nombre: string;
-  calificacion: number;
-  // profesor: Profesor;
+  calificacionPrimerPeriodo: number;
+  calificacionSegundoPeriodo: number;
+  calificacionTercerPeriodo: number;
+  profesores: Profesores;
 }
 
 export type Estudiantes = Estudiante[];

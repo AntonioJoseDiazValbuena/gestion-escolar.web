@@ -1,1 +1,31 @@
-<p>gestion-estudiantes-listado works!</p>
+<div>
+  <section>
+    <h1>Gestión de estudiantes</h1>
+    <button>Registrar estudiante</button>
+  </section>
+  <section>
+    <div>
+      <div>Tarjeta de identidad del estudiante</div>
+      <div>Nombre del estudiante</div>
+      <div>Materias, notas y profesores</div>
+    </div>
+    <div *ngFor="let estudiante of estudiantes">
+      <div>{{estudiante.tarjetaIdentidad}}</div>
+      <div>{{estudiante.nombre}}</div>
+      <div *ngFor="let materia of estudiante.materias">
+        <div>Materia: {{materia}}</div>
+        <div>Nota primer periodo: {{materia.calificacionPrimerPeriodo}} <button
+            (click)="modificarNotaPrimerPeriodo(estudiante)">Modificar nota</button></div>
+        <div>Nota segundo periodo: {{materia.calificacionSegundoPeriodo}} <button
+            (click)="modificarNotaSegundoPeriodo(estudiante)">Modificar nota</button></div>
+        <div>Nota tercer periodo: {{materia.calificacionTercerPeriodo}} <button
+            (click)="modificarNotaTercerPeriodo(estudiante)">Modificar nota</button></div>
+        <div>Profesores:
+          <div *ngFor="let profesor of materia.profesores">
+            <div>profesor.nombre</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

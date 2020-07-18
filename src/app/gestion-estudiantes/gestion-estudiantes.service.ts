@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Estudiantes } from './gestion-estudiantes.models';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GestionEstudiantesService {
   constructor(private peticion: HttpClient) { }
 
