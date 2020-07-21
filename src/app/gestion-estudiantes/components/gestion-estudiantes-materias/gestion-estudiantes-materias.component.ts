@@ -9,10 +9,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./gestion-estudiantes-materias.component.scss']
 })
 export class GestionEstudiantesMateriasComponent implements OnInit {
-  @Input() materias = [{ materia: {} as Materia } as Grupo] as Grupos;
+  @Input() materias = [{ materia: {} as Materia, profesor: {} } as Grupo] as Grupos;
   @Input() estudianteRecibido = {
     materias: [
-      { grupo: { materia: {} as Materia } as Grupo } as MateriaEstudiante
+      { grupo: { materia: {} as Materia, profesor: {} } as Grupo } as MateriaEstudiante
     ] as MateriasEstudiantes
   } as Estudiante;
   @Output() agregarMateria = new EventEmitter<MateriaEstudiante>();

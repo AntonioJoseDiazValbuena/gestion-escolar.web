@@ -10,12 +10,13 @@
     </div>
     <div *ngFor="let profesor of profesores">
       <div>{{profesor.nombre}}</div>
-      <div *ngFor="let materia of profesor.materias">
-        <div>{{materia.nombre}}</div>
+      <div *ngFor="let grupo of profesor.grupo">
+        <div>{{grupo.materia.nombre}}</div>
+        <button (click)="eliminar(grupo)">Eliminar materia</button>
       </div>
-      <button>Agregar materia</button>
-      <button>Eliminar materia</button>
+      <button (click)="registrarMateria(profesor)">Agregar materia</button>
+      <button (click)="eliminarProfesor(profesor)">Retirar profesor</button>
+      <button (click)="cambiarNombre(profesor)">Cambiar nombre del profesor</button>
     </div>
-    <button>Retirar profesor</button>
   </section>
 </div>

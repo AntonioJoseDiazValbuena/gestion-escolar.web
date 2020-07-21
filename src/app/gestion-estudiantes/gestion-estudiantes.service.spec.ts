@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { GestionEstudiantesService } from './gestion-estudiantes.service';
 import { Estudiante, MateriaEstudiante } from './gestion-estudiantes.models';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('GestionEstudiantesService', () => {
   let service: GestionEstudiantesService;
@@ -11,7 +12,8 @@ describe('GestionEstudiantesService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [GestionEstudiantesService]
+      providers: [GestionEstudiantesService],
+      schemas: [NO_ERRORS_SCHEMA]
     }));
 
   beforeEach(() => {

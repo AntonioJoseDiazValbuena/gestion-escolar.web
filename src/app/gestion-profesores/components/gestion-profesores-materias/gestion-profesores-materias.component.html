@@ -1,18 +1,17 @@
 <div>
   <section>
-    <h1>Agregar una nueva materia al estudiante {{estudianteRecibido.nombre}}</h1>
+    <h1>Agregar una nueva materia al profesor {{profesorRecibido.nombre}}</h1>
     <h2>Materias registradas</h2>
-    <div *ngFor="let materia of estudianteRecibido.materias">
-      <div>{{materia.grupo.materia.nombre}} + {{materia.grupo.profesor.nombre}}</div>
+    <div *ngFor="let grupo of profesorRecibido.grupos">
+      <div>{{grupo.materia.nombre}}</div>
     </div>
     <h1>Registrar materia</h1>
     <form [formGroup]="formulario">
       <label for=""><span class="required">*</span> Materia </label>
       <div>
-        <select formControlName="idGrupo" required>
+        <select formControlName="idMateria" required>
           <option value="" disabled>--Seleccione--</option>
-          <option *ngFor="let opcion of materias" [value]="opcion.id">{{opcion.materia.nombre}} -
-            {{opcion.profesor.nombre}}</option>
+          <option *ngFor="let opcion of materias" [value]="opcion.id">{{opcion.nombre}}</option>
         </select>
       </div>
     </form>

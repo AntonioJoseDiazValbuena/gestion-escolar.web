@@ -1,1 +1,24 @@
-<p>gestion-profesores-formulario works!</p>
+<div>
+  <h1 name="tituloRegistro" *ngIf="!profesorRecibido.cedula">Registrar un nuevo profesor</h1>
+  <h1 name="tituloEdicion" *ngIf="!!profesorRecibido.cedula">Editar nombre del profesor</h1>
+  <section>
+    <form [formGroup]="profesor">
+      <div name="inputCedula" *ngIf="!profesorRecibido.cedula">
+        <label><span class="required">*</span> Cédula </label>
+        <input type="text" maxlength="20" formControlName="cedula">
+      </div>
+      <div name="tituloCedula" *ngIf="!!profesorRecibido.cedula">
+        <h2>Cedula: <strong>{{profesorRecibido.cedula}}</strong></h2>
+      </div>
+      <div>
+        <label><span class="required">*</span> Nombre </label>
+        <input type="text" maxlength="50" formControlName="nombre">
+      </div>
+    </form>
+    <button name="botonGuardar" *ngIf="!profesorRecibido.cedula" (click)="guardar()"
+      [disabled]="profesor.invalid">Guardar profesor</button>
+    <button name="botonActualizar" *ngIf="!!profesorRecibido.cedula" (click)="actualizar()"
+      [disabled]="profesor.invalid">Actualizar nombre profesor</button>
+    <button (click)="cancelar()">Cancelar</button>
+  </section>
+</div>

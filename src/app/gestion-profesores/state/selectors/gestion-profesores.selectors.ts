@@ -8,8 +8,27 @@ export const getProfesores = createSelector(
   state => state.profesores
 );
 
-export const getNuevoProfesor = createSelector(
+export const getNuevoOEditando = createSelector(
   getProfesoresFeature,
-  state => state.nuevoProfesor
+  state => state.nuevoOEditando
 );
 
+export const getMaterias = createSelector(
+  getProfesoresFeature,
+  state => state.materias
+);
+
+export const getProfesorAModificar = createSelector(
+  getProfesoresFeature,
+  state => state.profesorAModificar
+);
+
+export const getEditandoMaterias = createSelector(
+  getProfesoresFeature,
+  state => state.editandoMaterias
+);
+
+export const getProfesorAAgregarMateria = createSelector(
+  getProfesoresFeature,
+  state => state.profesorAAGregarMateria
+);

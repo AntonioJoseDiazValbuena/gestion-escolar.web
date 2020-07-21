@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -10,19 +10,22 @@ import { GestionProfesoresFormularioComponent } from './components/gestion-profe
 import { GestionProfesoresListadoComponent } from './components/gestion-profesores-listado/gestion-profesores-listado.component';
 import { GestionProfesoresService } from './gestion-profesores.service';
 import * as fromGestionProfesores from './state';
+import { GestionProfesoresMateriasComponent } from './components/gestion-profesores-materias/gestion-profesores-materias.component';
 
 @NgModule({
   declarations: [
     GestionProfesoresShellComponent,
     GestionProfesoresFormularioComponent,
-    GestionProfesoresListadoComponent
+    GestionProfesoresListadoComponent,
+    GestionProfesoresMateriasComponent
   ],
   imports: [
     CommonModule,
     GestionProfesoresRoutingModule,
     FormsModule,
     StoreModule.forFeature('gestionProfesores', fromGestionProfesores.reducer),
-    EffectsModule.forFeature([fromGestionProfesores.GestionProfesoresEffects])
+    EffectsModule.forFeature([fromGestionProfesores.GestionProfesoresEffects]),
+    ReactiveFormsModule
   ],
   providers: [
     GestionProfesoresService

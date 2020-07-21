@@ -1,17 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GestionEstudiantesMateriasComponent } from './gestion-estudiantes-materias.component';
+import { GestionProfesoresMateriasComponent } from './gestion-profesores-materias.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { MateriaEstudiante } from '../../gestion-estudiantes.models';
+import { Grupo } from 'src/app/shared/shared.models';
 
-describe('GestionEstudiantesMateriasComponent', () => {
-  let component: GestionEstudiantesMateriasComponent;
-  let fixture: ComponentFixture<GestionEstudiantesMateriasComponent>;
+describe('GestionProfesoresMateriasComponent', () => {
+  let component: GestionProfesoresMateriasComponent;
+  let fixture: ComponentFixture<GestionProfesoresMateriasComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GestionEstudiantesMateriasComponent],
+      declarations: [GestionProfesoresMateriasComponent],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [FormBuilder]
     })
@@ -19,7 +19,7 @@ describe('GestionEstudiantesMateriasComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GestionEstudiantesMateriasComponent);
+    fixture = TestBed.createComponent(GestionProfesoresMateriasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -33,10 +33,10 @@ describe('GestionEstudiantesMateriasComponent', () => {
     fixture.detectChanges();
 
     const registroEsperado = {
-      idGrupo: '' as any
-    } as MateriaEstudiante;
+      idMateria: '' as any
+    } as Grupo;
 
-    expect(component.formulario.value as MateriaEstudiante).toEqual(registroEsperado);
+    expect(component.formulario.value as Grupo).toEqual(registroEsperado);
   });
 
   it('debe "agregar" emitir el evento "agregarMateria"', () => {
