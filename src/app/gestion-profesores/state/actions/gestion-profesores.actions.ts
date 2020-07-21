@@ -8,7 +8,7 @@ export const obtenerProfesores = createAction(
 );
 
 export const obtenerProfesoresExitoso = createAction(
-  `${origen} Obtener profesores`,
+  `${origen} Obtener profesores exitoso`,
   props<{ profesores: Profesores }>()
 );
 

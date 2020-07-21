@@ -1,12 +1,25 @@
 import { createReducer, Action, on } from '@ngrx/store';
-import { obtenerEstudiantesExitoso } from '../actions/gestion-estudiantes.actions';
-import { Estudiantes } from '../../gestion-estudiantes.models';
+import {
+  obtenerEstudiantesExitoso,
+  modificarNotas,
+  cancelarFormularios,
+  ingresarAMateria,
+  obtenerMateriasExitoso,
+  nuevoEstudiante,
+  modificarNombre
+} from '../actions/gestion-estudiantes.actions';
+import { Estudiantes, Estudiante, MateriaEstudiante } from '../../gestion-estudiantes.models';
+import { Grupos } from 'src/app/shared/shared.models';
 
 export interface GestionEstudiantesState {
   estudiantes: Estudiantes;
-  nuevo: boolean;
+  nuevoOEditando: boolean;
   editandoNotas: boolean;
   editandoMaterias: boolean;
+  notasACambiar: MateriaEstudiante;
+  estudianteAModificar: Estudiante;
+  estudianteAAgregarMateria: Estudiante;
+  materias: Grupos;
 }
 
 export interface State {
@@ -15,14 +28,32 @@ export interface State {
 
 export const initialState: GestionEstudiantesState = {
   estudiantes: [],
-  nuevo: false,
+  nuevoOEditando: false,
   editandoNotas: false,
-  editandoMaterias: false
+  editandoMaterias: false,
+  notasACambiar: null,
+  estudianteAModificar: null,
+  estudianteAAgregarMateria: null,
+  materias: []
 };
 
 const gestionEstudiantesReducer = createReducer(
   initialState,
-  on(obtenerEstudiantesExitoso, (state, accion) => ({ ...state, estudiantes: [...accion.estudiantes] }))
+  on(obtenerEstudiantesExitoso, (state, accion) => ({ ...state, estudiantes: [...accion.estudiantes] })),
+  on(modificarNotas, (state, accion) => ({ ...state, notasACambiar: { ...accion.materiaEstudiante }, editandoNotas: true })),
+  on(cancelarFormularios, (state) => ({
+    ...state,
+    nuevoOEditando: false,
+    editandoMaterias: false,
+    editandoNotas: false,
+    estudianteAAgregarMateria: null,
+    estudianteAModificar: null,
+    notasACambiar: null
+  })),
+  on(ingresarAMateria, (state, accion) => ({ ...state, estudianteAAgregarMateria: { ...accion.estudiante }, editandoMaterias: true })),
+  on(obtenerMateriasExitoso, (state, accion) => ({ ...state, materias: { ...accion.materias } })),
+  on(nuevoEstudiante, (state) => ({ ...state, nuevoOEditando: true, estudianteAModificar: null })),
+  on(modificarNombre, (state, accion) => ({ ...state, nuevoOEditando: true, estudianteAModificar: accion.estudiante }))
 );
 
 export function reducer(state: GestionEstudiantesState | undefined, accion: Action) {

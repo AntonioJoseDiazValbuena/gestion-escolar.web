@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InicioShellComponent } from './inicio-shell.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('InicioShellComponent', () => {
   let component: InicioShellComponent;
@@ -8,9 +9,10 @@ describe('InicioShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InicioShellComponent ]
+      declarations: [InicioShellComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

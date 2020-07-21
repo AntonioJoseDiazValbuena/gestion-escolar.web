@@ -1,0 +1,24 @@
+<div>
+  <h1>Cambiar las notas para la materia '{{notasRecibidas.grupo.materia.nombre}}' del estudiante
+    '{{notasRecibidas.estudiante.nombre}}'</h1>
+  <section>
+    <form [formGroup]="notas">
+      <div>
+        <div>
+          <label> Nota del primer periodo </label>
+          <input type="number" max="10" formControlName="calificacionPrimerPeriodo">
+        </div>
+        <div>
+          <label> Nota del segundo periodo </label>
+          <input type="number" max="10" formControlName="calificacionSegundoPeriodo">
+        </div>
+        <div>
+          <label> Nota del tercer periodo </label>
+          <input type="number" max="10" formControlName="calificacionTercerPeriodo">
+        </div>
+      </div>
+    </form>
+    <button (click)="guardar()">Guardar notas</button>
+    <button (click)="cancelar()">Cancelar</button>
+  </section>
+</div>

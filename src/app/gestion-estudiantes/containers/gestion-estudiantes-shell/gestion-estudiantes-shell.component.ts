@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 
 import * as fromGestionEstudiantes from '../../state';
 import { Store, select } from '@ngrx/store';
-import { Estudiantes, Estudiante } from '../../gestion-estudiantes.models';
+import { Estudiantes, Estudiante, MateriaEstudiante } from '../../gestion-estudiantes.models';
+import { Grupos } from 'src/app/shared/shared.models';
 
 @Component({
   selector: 'app-gestion-estudiantes-shell',
@@ -11,10 +12,14 @@ import { Estudiantes, Estudiante } from '../../gestion-estudiantes.models';
   styleUrls: ['./gestion-estudiantes-shell.component.scss']
 })
 export class GestionEstudiantesShellComponent implements OnInit {
-  nuevo$: Observable<boolean>;
+  nuevoOEditando$: Observable<boolean>;
   editandoNotas$: Observable<boolean>;
   editandoMaterias$: Observable<boolean>;
   estudiantes$: Observable<Estudiantes>;
+  notasACambiar$: Observable<MateriaEstudiante>;
+  estudianteAModificar$: Observable<Estudiante>;
+  estudianteAAsignarMateria$: Observable<Estudiante>;
+  materias$: Observable<Grupos>;
 
   constructor(
     private store: Store<fromGestionEstudiantes.State>
@@ -26,25 +31,62 @@ export class GestionEstudiantesShellComponent implements OnInit {
   }
 
   iniciarObtencionStore() {
-    this.nuevo$ = this.store.pipe(select(fromGestionEstudiantes.getNuevo));
+    this.nuevoOEditando$ = this.store.pipe(select(fromGestionEstudiantes.getNuevoOEditando));
     this.editandoNotas$ = this.store.pipe(select(fromGestionEstudiantes.getEditandoNotas));
     this.editandoMaterias$ = this.store.pipe(select(fromGestionEstudiantes.getEditandoMaterias));
     this.estudiantes$ = this.store.pipe(select(fromGestionEstudiantes.getEstudiantes));
+    this.notasACambiar$ = this.store.pipe(select(fromGestionEstudiantes.getEstudianteACambiarNotas));
+    this.estudianteAModificar$ = this.store.pipe(select(fromGestionEstudiantes.getEstudianteAModificar));
+    this.materias$ = this.store.pipe(select(fromGestionEstudiantes.getMaterias));
+    this.estudianteAAsignarMateria$ = this.store.pipe(select(fromGestionEstudiantes.getEstudianteAAsignarMateria))
   }
 
   ejecutarAcciones() {
     this.store.dispatch(fromGestionEstudiantes.obtenerEstudiantes());
+    this.store.dispatch(fromGestionEstudiantes.obtenerMaterias())
   }
 
-  modificarPrimerPeriodo(estudiante: Estudiante) {
-    // this.store.dispatch(fromGestionEstudiantes.)
+  modificarNotas(materiaEstudiante: MateriaEstudiante) {
+    this.store.dispatch(fromGestionEstudiantes.modificarNotas({ materiaEstudiante }));
   }
 
-  modificarSegundoPeriodo(estudiante: Estudiante) {
-
+  guardarNotas(notasAGuardar: MateriaEstudiante) {
+    this.store.dispatch(fromGestionEstudiantes.guardarNotas({ notasAGuardar }))
   }
 
-  modificarTercerPeriodo(estudiante: Estudiante) {
+  cancelarFormularios() {
+    this.store.dispatch(fromGestionEstudiantes.cancelarFormularios())
+  }
 
+  guardarEstudiante(estudiante: Estudiante) {
+    this.store.dispatch(fromGestionEstudiantes.guardarEstudiante({ estudiante }))
+  }
+
+  actualizarEstudiante(estudiante: Estudiante) {
+    this.store.dispatch(fromGestionEstudiantes.actualizarEstudiante({ estudiante }));
+  }
+
+  ingresarAMateria(estudiante: Estudiante) {
+    this.store.dispatch(fromGestionEstudiantes.ingresarAMateria({ estudiante }));
+  }
+
+  agregarMateria(materia: MateriaEstudiante) {
+    this.store.dispatch(fromGestionEstudiantes.registrarMateria({ materia }));
+  }
+
+  nuevoEstudiante() {
+    this.store.dispatch(fromGestionEstudiantes.nuevoEstudiante());
+  }
+
+  modificarNombre(estudiante: Estudiante) {
+    this.store.dispatch(fromGestionEstudiantes.modificarNombre({ estudiante }));
+  }
+
+  eliminarMateria(materia: MateriaEstudiante) {
+    this.store.dispatch(fromGestionEstudiantes.eliminarMateria({ materia }));
+  }
+
+  eliminarEstudiante(estudiante: Estudiante) {
+    this.store.dispatch(fromGestionEstudiantes.eliminarEstudiante({ estudiante }));
   }
 }

@@ -1,20 +1,22 @@
-import { Profesores } from '../gestion-profesores/gestion-profesores.models';
+import { Grupo } from '../shared/shared.models';
 
 export interface Estudiante {
-  tarjetaIdentidad: number;
+  tarjetaIdentidad: string;
   nombre: string;
-  materias: MateriasYCalificaciones;
+  materias: MateriasEstudiantes;
 }
 
-export interface MateriaYCalificacion {
+export interface MateriaEstudiante {
   id: string;
-  nombre: string;
+  idGrupo: number;
+  tarjetaIdentidadEstudiante: string;
   calificacionPrimerPeriodo: number;
   calificacionSegundoPeriodo: number;
   calificacionTercerPeriodo: number;
-  profesores: Profesores;
+  estudiante: Estudiante;
+  grupo: Grupo;
 }
 
 export type Estudiantes = Estudiante[];
 
-export type MateriasYCalificaciones = MateriaYCalificacion[];
+export type MateriasEstudiantes = MateriaEstudiante[];

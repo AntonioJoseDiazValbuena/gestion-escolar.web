@@ -1,14 +1,10 @@
+import { Grupos } from '../shared/shared.models';
+
 export interface Profesor {
+  id: number;
   cedula: string;
   nombre: string;
-  materias: Materias;
+  grupos: Grupos;
 }
-
-export interface Materia {
-  id: number;
-  nombre: string;
-}
-
-export type Materias = Materia[];
 
 export type Profesores = Profesor[];

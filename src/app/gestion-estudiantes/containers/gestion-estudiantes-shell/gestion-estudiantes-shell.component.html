@@ -1,6 +1,18 @@
 <button routerLink="../">Volver</button>
 <app-gestion-estudiantes-listado
-  *ngIf="(nuevo$ | async) === false && (editandoNotas$ | async) === false && (editandoMaterias$ | async) === false"
-  [estudiantes]="estudiantes$ | async" (modificarPrimerPeriodo)="modificarPrimerPeriodo($event)"
-  (modificarSegundoPeriodo)="modificarSegundoPeriodo($event)" (modificarTercerPeriodo)="modificarTercerPeriodo($event)">
+  *ngIf="(nuevoOEditando$ | async) === false && (editandoNotas$ | async) === false && (editandoMaterias$ | async) === false"
+  [estudiantes]="estudiantes$ | async" (modificarNotas)="modificarNotas($event)"
+  (ingresarAMateria)="ingresarAMateria($event)" (nuevoEstudiante)="nuevoEstudiante()"
+  (modificarNombre)="modificarNombre($event)" (eliminarMateria)="eliminarMateria($event)"
+  (eliminarEstudiante)="eliminarEstudiante($event)">
 </app-gestion-estudiantes-listado>
+<app-gestion-estudiantes-notas [notasRecibidas]="notasACambiar$ | async" *ngIf="editandoNotas$ | async"
+  (guardarNotas)="guardarNotas($event)" (cancelarEdicionDeNotas)="cancelarFormularios()">
+</app-gestion-estudiantes-notas>
+<app-gestion-estudiantes-formulario [estudianteRecibido]="estudianteAModificar$ | async"
+  (guardarEstudiante)="guardarEstudiante($event)" (actualizarEstudiante)="actualizarEstudiante($event)"
+  (cancelarRegistro)="cancelarFormularios()"></app-gestion-estudiantes-formulario>
+<app-gestion-estudiantes-materias *ngIf="editandoMaterias$ | async" [materias]="materias$ | async"
+  [estudianteRecibido]="estudianteAAsignarMateria$ | async" (cancelarRegistroMateria)="cancelarFormularios()"
+  (agregarMateria)="agregarMateria($event)">
+</app-gestion-estudiantes-materias>

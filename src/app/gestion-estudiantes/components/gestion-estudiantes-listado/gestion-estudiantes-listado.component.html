@@ -1,7 +1,7 @@
 <div>
   <section>
     <h1>Gestión de estudiantes</h1>
-    <button>Registrar estudiante</button>
+    <button (click)="nuevo()">Registrar estudiante</button>
   </section>
   <section>
     <div>
@@ -13,19 +13,19 @@
       <div>{{estudiante.tarjetaIdentidad}}</div>
       <div>{{estudiante.nombre}}</div>
       <div *ngFor="let materia of estudiante.materias">
-        <div>Materia: {{materia}}</div>
-        <div>Nota primer periodo: {{materia.calificacionPrimerPeriodo}} <button
-            (click)="modificarNotaPrimerPeriodo(estudiante)">Modificar nota</button></div>
-        <div>Nota segundo periodo: {{materia.calificacionSegundoPeriodo}} <button
-            (click)="modificarNotaSegundoPeriodo(estudiante)">Modificar nota</button></div>
-        <div>Nota tercer periodo: {{materia.calificacionTercerPeriodo}} <button
-            (click)="modificarNotaTercerPeriodo(estudiante)">Modificar nota</button></div>
-        <div>Profesores:
-          <div *ngFor="let profesor of materia.profesores">
-            <div>profesor.nombre</div>
-          </div>
-        </div>
+        <div>Materia: {{materia.grupo.materia.nombre}}</div>
+        <div>Profesor: {{materia.grupo.profesor.nombre}}</div>
+        <div>Nota primer periodo: {{materia.calificacionPrimerPeriodo}}</div>
+        <div>Nota segundo periodo: {{materia.calificacionSegundoPeriodo}}</div>
+        <div>Nota tercer periodo: {{materia.calificacionTercerPeriodo}}</div>
+        <button (click)="cambiarNotas(materia)">Modificar notas</button>
+        <button (click)="removerMateria(materia)">Remover inscripción a materia</button>
       </div>
+      <div>
+        <button (click)="ingresarAMateria(estudiante)">Ingresar a una materia</button>
+      </div>
+      <button (click)="cambiarNombre(estudiante)">Cambiar nombre del estudiante</button>
+      <button (click)="eliminar(estudiante)">Eliminar estudiante</button>
     </div>
   </section>
 </div>

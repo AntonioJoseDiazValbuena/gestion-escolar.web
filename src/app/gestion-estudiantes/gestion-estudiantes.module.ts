@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -12,17 +12,22 @@ import { GestionEstudiantesListadoComponent } from './components/gestion-estudia
 import {
   GestionEstudiantesFormularioComponent
 } from './components/gestion-estudiantes-formulario/gestion-estudiantes-formulario.component';
+import { GestionEstudiantesNotasComponent } from './components/gestion-estudiantes-notas/gestion-estudiantes-notas.component';
+import { GestionEstudiantesMateriasComponent } from './components/gestion-estudiantes-materias/gestion-estudiantes-materias.component';
 
 @NgModule({
   declarations: [
     GestionEstudiantesShellComponent,
     GestionEstudiantesListadoComponent,
-    GestionEstudiantesFormularioComponent
+    GestionEstudiantesFormularioComponent,
+    GestionEstudiantesNotasComponent,
+    GestionEstudiantesMateriasComponent
   ],
   imports: [
     CommonModule,
     GestionEstudiantesRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forFeature('gestionEstudiantes', fromGestionEstudiantes.reducer),
     EffectsModule.forFeature([fromGestionEstudiantes.GestionEstudiantesEffects])
   ],

@@ -7,18 +7,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio-shell.component.scss']
 })
 export class InicioShellComponent {
-
-  constructor(private router: Router) { }
-
-  gestionarEstudiantes() {
-    this.router.navigateByUrl('GestionEstudiantes');
-  }
-
-  gestionarProfesores() {
-
-  }
-
-  gestionarMaterias() {
-
-  }
+  constructor() { }
 }

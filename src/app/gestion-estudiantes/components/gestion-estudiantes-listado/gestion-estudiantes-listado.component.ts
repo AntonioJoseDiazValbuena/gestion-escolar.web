@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Estudiantes, Estudiante } from '../../gestion-estudiantes.models';
+import { Estudiantes, Estudiante, MateriaEstudiante } from '../../gestion-estudiantes.models';
 
 @Component({
   selector: 'app-gestion-estudiantes-listado',
@@ -8,21 +8,36 @@ import { Estudiantes, Estudiante } from '../../gestion-estudiantes.models';
 })
 export class GestionEstudiantesListadoComponent {
   @Input() estudiantes: Estudiantes;
-  @Output() modificarPrimerPeriodo = new EventEmitter<Estudiante>();
-  @Output() modificarSegundoPeriodo = new EventEmitter<Estudiante>();
-  @Output() modificarTercerPeriodo = new EventEmitter<Estudiante>();
+  @Output() modificarNotas = new EventEmitter<MateriaEstudiante>();
+  @Output() registrarNuevaMateria = new EventEmitter<Estudiante>();
+  @Output() nuevoEstudiante = new EventEmitter<void>();
+  @Output() modificarNombre = new EventEmitter<Estudiante>();
+  @Output() eliminarMateria = new EventEmitter<MateriaEstudiante>();
+  @Output() eliminarEstudiante = new EventEmitter<Estudiante>();
 
   constructor() { }
 
-  modificarNotaPrimerPeriodo(estudiante) {
-    this.modificarPrimerPeriodo.emit(estudiante);
+  cambiarNotas(materia: MateriaEstudiante) {
+    this.modificarNotas.emit(materia);
   }
 
-  modificarNotaSegundoPeriodo(estudiante) {
-    this.modificarSegundoPeriodo.emit(estudiante);
+  ingresarAMateria(estudiante: Estudiante) {
+    this.registrarNuevaMateria.emit(estudiante);
   }
 
-  modificarNotaTercerPeriodo(estudiante) {
-    this.modificarTercerPeriodo.emit(estudiante);
+  nuevo() {
+    this.nuevoEstudiante.emit();
+  }
+
+  cambiarNombre(estudiante: Estudiante) {
+    this.modificarNombre.emit(estudiante);
+  }
+
+  removerMateria(materia: MateriaEstudiante) {
+    this.eliminarMateria.emit(materia);
+  }
+
+  eliminar(estudiante: Estudiante) {
+    this.eliminarEstudiante.emit(estudiante);
   }
 }
