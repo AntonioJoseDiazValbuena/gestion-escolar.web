@@ -19,6 +19,7 @@ export interface GestionEstudiantesState {
   notasACambiar: MateriaEstudiante;
   estudianteAModificar: Estudiante;
   estudianteAAgregarMateria: Estudiante;
+  estudianteAModificarNotas: Estudiante;
   materias: Grupos;
 }
 
@@ -34,13 +35,15 @@ export const initialState: GestionEstudiantesState = {
   notasACambiar: null,
   estudianteAModificar: null,
   estudianteAAgregarMateria: null,
-  materias: []
+  materias: [],
+  estudianteAModificarNotas: null
 };
 
 const gestionEstudiantesReducer = createReducer(
   initialState,
   on(obtenerEstudiantesExitoso, (state, accion) => ({ ...state, estudiantes: [...accion.estudiantes] })),
-  on(modificarNotas, (state, accion) => ({ ...state, notasACambiar: { ...accion.materiaEstudiante }, editandoNotas: true })),
+  on(modificarNotas, (state, accion) =>
+    ({ ...state, notasACambiar: { ...accion.materia }, estudianteAModificarNotas: { ...accion.estudiante }, editandoNotas: true })),
   on(cancelarFormularios, (state) => ({
     ...state,
     nuevoOEditando: false,
@@ -48,10 +51,11 @@ const gestionEstudiantesReducer = createReducer(
     editandoNotas: false,
     estudianteAAgregarMateria: null,
     estudianteAModificar: null,
-    notasACambiar: null
+    notasACambiar: null,
+    estudianteAModificarNotas: null
   })),
   on(ingresarAMateria, (state, accion) => ({ ...state, estudianteAAgregarMateria: { ...accion.estudiante }, editandoMaterias: true })),
-  on(obtenerMateriasExitoso, (state, accion) => ({ ...state, materias: { ...accion.materias } })),
+  on(obtenerMateriasExitoso, (state, accion) => ({ ...state, materias: [...accion.materias] })),
   on(nuevoEstudiante, (state) => ({ ...state, nuevoOEditando: true, estudianteAModificar: null })),
   on(modificarNombre, (state, accion) => ({ ...state, nuevoOEditando: true, estudianteAModificar: accion.estudiante }))
 );

@@ -15,7 +15,7 @@ export const obtenerEstudiantesExitoso = createAction(
 
 export const modificarNotas = createAction(
   `${origen} Modificar notas`,
-  props<{ materiaEstudiante: MateriaEstudiante }>()
+  props<{ materia: MateriaEstudiante, estudiante: Estudiante }>()
 );
 
 export const guardarNotas = createAction(

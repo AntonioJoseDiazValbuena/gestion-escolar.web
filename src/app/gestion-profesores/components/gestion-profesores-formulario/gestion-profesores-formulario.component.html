@@ -1,13 +1,13 @@
 <div>
-  <h1 name="tituloRegistro" *ngIf="!profesorRecibido.cedula">Registrar un nuevo profesor</h1>
-  <h1 name="tituloEdicion" *ngIf="!!profesorRecibido.cedula">Editar nombre del profesor</h1>
+  <h1 name="tituloRegistro" *ngIf="!profesorRecibido">Registrar un nuevo profesor</h1>
+  <h1 name="tituloEdicion" *ngIf="!!profesorRecibido">Editar nombre del profesor</h1>
   <section>
     <form [formGroup]="profesor">
-      <div name="inputCedula" *ngIf="!profesorRecibido.cedula">
+      <div name="inputCedula" *ngIf="!profesorRecibido">
         <label><span class="required">*</span> Cédula </label>
         <input type="text" maxlength="20" formControlName="cedula">
       </div>
-      <div name="tituloCedula" *ngIf="!!profesorRecibido.cedula">
+      <div name="tituloCedula" *ngIf="!!profesorRecibido">
         <h2>Cedula: <strong>{{profesorRecibido.cedula}}</strong></h2>
       </div>
       <div>
@@ -15,9 +15,9 @@
         <input type="text" maxlength="50" formControlName="nombre">
       </div>
     </form>
-    <button name="botonGuardar" *ngIf="!profesorRecibido.cedula" (click)="guardar()"
-      [disabled]="profesor.invalid">Guardar profesor</button>
-    <button name="botonActualizar" *ngIf="!!profesorRecibido.cedula" (click)="actualizar()"
+    <button name="botonGuardar" *ngIf="!profesorRecibido" (click)="guardar()" [disabled]="profesor.invalid">Guardar
+      profesor</button>
+    <button name="botonActualizar" *ngIf="!!profesorRecibido" (click)="actualizar()"
       [disabled]="profesor.invalid">Actualizar nombre profesor</button>
     <button (click)="cancelar()">Cancelar</button>
   </section>

@@ -28,12 +28,13 @@ describe('GestionEstudiantesListadoComponent', () => {
 
   it('debe "cambiarNotas" emitir el evento "modificarNotas"', () => {
     const materia = {} as MateriaEstudiante;
+    const estudiante = {} as Estudiante;
 
     let llamado = false;
 
     component.modificarNotas.subscribe(llamado = true);
 
-    component.cambiarNotas(materia);
+    component.cambiarNotas(materia, estudiante);
 
     expect(llamado).toBeTruthy();
   });

@@ -43,6 +43,14 @@ describe('GestionProfesoresFormularioComponent', () => {
 
   it('debe "ngOnChanges", cuando detecta un cambio de la cedula, hacer reset en el formulario', () => {
     spyOn(component.profesor, 'reset');
+
+    const formularioEsperado = {
+      cedula: '1007465364',
+      nombre: 'Antonio'
+    } as Profesor;
+
+    component.profesorRecibido = formularioEsperado;
+
     const cambios = {
       profesorRecibido: new SimpleChange(null, {
         cedula: '1007465364'
@@ -105,6 +113,8 @@ describe('GestionProfesoresFormularioComponent', () => {
   });
 
   it('debe mostrarse el formulario de creacion cuando no reciba objeto a modificar', () => {
+    component.profesorRecibido = null;
+
     fixture.detectChanges();
 
     const tituloRegistro = fixture.debugElement.query(By.css('h1[name="tituloRegistro"]'));

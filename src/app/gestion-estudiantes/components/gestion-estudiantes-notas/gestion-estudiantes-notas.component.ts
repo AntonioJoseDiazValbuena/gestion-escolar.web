@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Estudiante, MateriaEstudiante } from '../../gestion-estudiantes.models';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Grupo, Materia } from 'src/app/shared/shared.models';
 
 @Component({
   selector: 'app-gestion-estudiantes-notas',
@@ -9,7 +8,8 @@ import { Grupo, Materia } from 'src/app/shared/shared.models';
   styleUrls: ['./gestion-estudiantes-notas.component.scss']
 })
 export class GestionEstudiantesNotasComponent implements OnInit, OnChanges {
-  @Input() notasRecibidas = { estudiante: {} as Estudiante, grupo: { materia: {} as Materia } as Grupo } as MateriaEstudiante;
+  @Input() notasRecibidas: MateriaEstudiante;
+  @Input() estudianteRecibido: Estudiante;
   @Output() guardarNotas = new EventEmitter<MateriaEstudiante>();
   @Output() cancelarEdicionDeNotas = new EventEmitter<void>()
 

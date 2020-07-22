@@ -14,6 +14,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('src/app/gestion-profesores/gestion-profesores.module').then(m => m.GestionProfesoresModule)
   },
+  {
+    path: '',
+    loadChildren: () => import('src/app/gestion-materias/gestion-materias.module').then(m => m.GestionMateriasModule)
+  }
 ];
 
 @NgModule({

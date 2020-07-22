@@ -1,0 +1,7 @@
+<button routerLink="../">Volver al menú principal</button>
+<app-gestion-materias-listado *ngIf="(nuevo$ | async) === false" [materias]="materias$ | async"
+  (nuevaMateria)="nuevaMateria()" (eliminarMateria)="eliminarMateria($event)">
+</app-gestion-materias-listado>
+<app-gestion-materias-formulario *ngIf="nuevo$ | async" (cancelarRegistro)="cancelarRegistro()"
+  (guardarMateria)="guardarMateria($event)">
+</app-gestion-materias-formulario>

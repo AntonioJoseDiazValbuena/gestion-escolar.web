@@ -23,7 +23,7 @@ export const getEditandoMaterias = createSelector(
   state => state.editandoMaterias
 );
 
-export const getEstudianteACambiarNotas = createSelector(
+export const getNotasACambiar = createSelector(
   getEstudiantesFeature,
   state => state.notasACambiar
 );
@@ -41,4 +41,9 @@ export const getEstudianteAAsignarMateria = createSelector(
 export const getMaterias = createSelector(
   getEstudiantesFeature,
   state => state.materias
+);
+
+export const getEstudianteAModificarNotas = createSelector(
+  getEstudiantesFeature,
+  state => state.estudianteAModificarNotas
 );

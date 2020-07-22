@@ -43,6 +43,14 @@ describe('GestionEstudiantesFormularioComponent', () => {
 
   it('debe "ngOnChanges", cuando detecta un cambio de la tarjeta de identidad, hacer reset en el formulario', () => {
     spyOn(component.estudiante, 'reset');
+
+    const formularioEsperado = {
+      tarjetaIdentidad: '1007465364',
+      nombre: 'Antonio'
+    } as Estudiante;
+
+    component.estudianteRecibido = formularioEsperado;
+
     const cambios = {
       estudianteRecibido: new SimpleChange(null, {
         tarjetaIdentidad: '1007465364'
@@ -105,6 +113,8 @@ describe('GestionEstudiantesFormularioComponent', () => {
   });
 
   it('debe mostrarse el formulario de creacion cuando no reciba objeto a modificar', () => {
+    component.estudianteRecibido = null;
+
     fixture.detectChanges();
 
     const tituloRegistro = fixture.debugElement.query(By.css('h1[name="tituloRegistro"]'));

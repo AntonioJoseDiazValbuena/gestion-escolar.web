@@ -13,7 +13,6 @@ export interface MateriaEstudiante {
   calificacionPrimerPeriodo: number;
   calificacionSegundoPeriodo: number;
   calificacionTercerPeriodo: number;
-  estudiante: Estudiante;
   grupo: Grupo;
 }
 

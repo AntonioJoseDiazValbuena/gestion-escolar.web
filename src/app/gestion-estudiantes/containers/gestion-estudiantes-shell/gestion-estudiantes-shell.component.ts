@@ -20,6 +20,7 @@ export class GestionEstudiantesShellComponent implements OnInit {
   estudianteAModificar$: Observable<Estudiante>;
   estudianteAAsignarMateria$: Observable<Estudiante>;
   materias$: Observable<Grupos>;
+  estudianteAModificarNotas$: Observable<Estudiante>;
 
   constructor(
     private store: Store<fromGestionEstudiantes.State>
@@ -35,31 +36,32 @@ export class GestionEstudiantesShellComponent implements OnInit {
     this.editandoNotas$ = this.store.pipe(select(fromGestionEstudiantes.getEditandoNotas));
     this.editandoMaterias$ = this.store.pipe(select(fromGestionEstudiantes.getEditandoMaterias));
     this.estudiantes$ = this.store.pipe(select(fromGestionEstudiantes.getEstudiantes));
-    this.notasACambiar$ = this.store.pipe(select(fromGestionEstudiantes.getEstudianteACambiarNotas));
+    this.notasACambiar$ = this.store.pipe(select(fromGestionEstudiantes.getNotasACambiar));
     this.estudianteAModificar$ = this.store.pipe(select(fromGestionEstudiantes.getEstudianteAModificar));
     this.materias$ = this.store.pipe(select(fromGestionEstudiantes.getMaterias));
-    this.estudianteAAsignarMateria$ = this.store.pipe(select(fromGestionEstudiantes.getEstudianteAAsignarMateria))
+    this.estudianteAAsignarMateria$ = this.store.pipe(select(fromGestionEstudiantes.getEstudianteAAsignarMateria));
+    this.estudianteAModificarNotas$ = this.store.pipe(select(fromGestionEstudiantes.getEstudianteAModificarNotas));
   }
 
   ejecutarAcciones() {
     this.store.dispatch(fromGestionEstudiantes.obtenerEstudiantes());
-    this.store.dispatch(fromGestionEstudiantes.obtenerMaterias())
+    this.store.dispatch(fromGestionEstudiantes.obtenerMaterias());
   }
 
-  modificarNotas(materiaEstudiante: MateriaEstudiante) {
-    this.store.dispatch(fromGestionEstudiantes.modificarNotas({ materiaEstudiante }));
+  modificarNotas(evento: { materia: MateriaEstudiante, estudiante: Estudiante }) {
+    this.store.dispatch(fromGestionEstudiantes.modificarNotas({ materia: evento.materia, estudiante: evento.estudiante }));
   }
 
   guardarNotas(notasAGuardar: MateriaEstudiante) {
-    this.store.dispatch(fromGestionEstudiantes.guardarNotas({ notasAGuardar }))
+    this.store.dispatch(fromGestionEstudiantes.guardarNotas({ notasAGuardar }));
   }
 
   cancelarFormularios() {
-    this.store.dispatch(fromGestionEstudiantes.cancelarFormularios())
+    this.store.dispatch(fromGestionEstudiantes.cancelarFormularios());
   }
 
   guardarEstudiante(estudiante: Estudiante) {
-    this.store.dispatch(fromGestionEstudiantes.guardarEstudiante({ estudiante }))
+    this.store.dispatch(fromGestionEstudiantes.guardarEstudiante({ estudiante }));
   }
 
   actualizarEstudiante(estudiante: Estudiante) {

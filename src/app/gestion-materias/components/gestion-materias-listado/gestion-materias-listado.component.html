@@ -1,0 +1,13 @@
+<div>
+  <section>
+    <h1>Gestión de materias</h1>
+    <button (click)="registrarMateria()">Registrar materia</button>
+  </section>
+  <section>
+    <div>Materia</div>
+    <div *ngFor="let materia of materias">
+      <div>{{materia.nombre}}</div>
+      <button (click)="eliminar(materia)">Eliminar materia</button>
+    </div>
+  </section>
+</div>

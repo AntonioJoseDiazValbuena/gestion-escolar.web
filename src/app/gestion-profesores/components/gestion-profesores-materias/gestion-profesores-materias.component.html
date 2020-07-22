@@ -13,6 +13,7 @@
           <option value="" disabled>--Seleccione--</option>
           <option *ngFor="let opcion of materias" [value]="opcion.id">{{opcion.nombre}}</option>
         </select>
+        <button routerLink="../GestionMaterias">Crear nueva materia</button>
       </div>
     </form>
     <button (click)="agregar()" [disabled]="formulario.invalid">Agregar materia</button>

@@ -37,7 +37,7 @@ export class GestionProfesoresService {
   eliminarGrupo(grupo: Grupo): Observable<void> {
     const urlEliminarGrupo = `${this.urlMaterias}Remover`;
 
-    return this.peticion.put<void>(urlEliminarGrupo, grupo);
+    return this.peticion.put<void>(urlEliminarGrupo, grupo.id);
   }
 
   obtenerMaterias(): Observable<Materias> {

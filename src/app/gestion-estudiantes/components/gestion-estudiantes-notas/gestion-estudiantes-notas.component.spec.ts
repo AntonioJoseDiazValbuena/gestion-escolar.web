@@ -2,9 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GestionEstudiantesNotasComponent } from './gestion-estudiantes-notas.component';
 import { NO_ERRORS_SCHEMA, SimpleChange, SimpleChanges } from '@angular/core';
-import { MateriaEstudiante } from '../../gestion-estudiantes.models';
+import { MateriaEstudiante, Estudiante } from '../../gestion-estudiantes.models';
 import { FormBuilder } from '@angular/forms';
 import { Grupo, Materia } from 'src/app/shared/shared.models';
+import { Profesor } from 'src/app/gestion-profesores/gestion-profesores.models';
 
 describe('GestionEstudiantesNotasComponent', () => {
   let component: GestionEstudiantesNotasComponent;
@@ -22,6 +23,8 @@ describe('GestionEstudiantesNotasComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(GestionEstudiantesNotasComponent);
     component = fixture.componentInstance;
+    component.notasRecibidas = { grupo: { materia: {}, profesor: {} } } as MateriaEstudiante;
+    component.estudianteRecibido = {} as Estudiante;
     fixture.detectChanges();
   });
 
@@ -61,10 +64,9 @@ describe('GestionEstudiantesNotasComponent', () => {
       calificacionPrimerPeriodo: 1,
       calificacionSegundoPeriodo: 1,
       calificacionTercerPeriodo: 1,
-      estudiante: {},
       idGrupo: 1,
       tarjetaIdentidadEstudiante: '1007465364',
-      grupo: { materia: {} as Materia } as Grupo
+      grupo: { materia: {} as Materia, profesor: {} as Profesor } as Grupo
     } as MateriaEstudiante;
 
     component.notasRecibidas = formularioEsperado;
@@ -75,7 +77,8 @@ describe('GestionEstudiantesNotasComponent', () => {
         calificacionSegundoPeriodo: 1,
         calificacionTercerPeriodo: 1,
         idGrupo: 1,
-        tarjetaIdentidadEstudiante: '1007465364'
+        tarjetaIdentidadEstudiante: '1007465364',
+        grupo: { materia: {} as Materia, profesor: {} as Profesor } as Grupo
       }, false)
     } as SimpleChanges;
 

@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./gestion-profesores-formulario.component.scss']
 })
 export class GestionProfesoresFormularioComponent implements OnInit, OnChanges {
-  @Input() profesorRecibido = {} as Profesor;
+  @Input() profesorRecibido: Profesor;
   @Output() guardarProfesor = new EventEmitter<Profesor>();
   @Output() actualizarProfesor = new EventEmitter<Profesor>();
   @Output() cancelarRegistro = new EventEmitter<void>();

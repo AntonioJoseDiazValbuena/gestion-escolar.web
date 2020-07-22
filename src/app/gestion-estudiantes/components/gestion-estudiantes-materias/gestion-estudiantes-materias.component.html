@@ -14,6 +14,7 @@
           <option *ngFor="let opcion of materias" [value]="opcion.id">{{opcion.materia.nombre}} -
             {{opcion.profesor.nombre}}</option>
         </select>
+        <button routerLink="../GestionProfesores">Asignar profesor a materia</button>
       </div>
     </form>
     <button (click)="agregar()" [disabled]="formulario.invalid">Agregar materia</button>

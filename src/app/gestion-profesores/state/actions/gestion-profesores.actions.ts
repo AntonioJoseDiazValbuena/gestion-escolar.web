@@ -18,11 +18,11 @@ export const nuevoProfesor = createAction(
 );
 
 export const obtenerMaterias = createAction(
-  `${origen} Obtener materias`
+  `${origen} Obtener materias profesor`
 );
 
 export const obtenerMateriasExitoso = createAction(
-  `${origen} Obtener materias exitoso`,
+  `${origen} Obtener materias profesor exitoso`,
   props<{ materias: Materias }>()
 );
 

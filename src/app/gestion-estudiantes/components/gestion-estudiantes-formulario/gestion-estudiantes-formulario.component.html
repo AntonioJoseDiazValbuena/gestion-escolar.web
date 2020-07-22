@@ -1,13 +1,13 @@
 <div>
-  <h1 name="tituloRegistro" *ngIf="!estudianteRecibido.tarjetaIdentidad">Registrar un nuevo estudiante</h1>
-  <h1 name="tituloEdicion" *ngIf="!!estudianteRecibido.tarjetaIdentidad">Editar nombre del estudiante</h1>
+  <h1 name="tituloRegistro" *ngIf="!estudianteRecibido">Registrar un nuevo estudiante</h1>
+  <h1 name="tituloEdicion" *ngIf="!!estudianteRecibido">Editar nombre del estudiante</h1>
   <section>
     <form [formGroup]="estudiante">
-      <div name="inputTarjetaIdentidad" *ngIf="!estudianteRecibido.tarjetaIdentidad">
+      <div name="inputTarjetaIdentidad" *ngIf="!estudianteRecibido">
         <label><span class="required">*</span> Tarjeta de identidad </label>
         <input type="text" maxlength="20" formControlName="tarjetaIdentidad">
       </div>
-      <div name="tituloTarjetaIdentidad" *ngIf="!!estudianteRecibido.tarjetaIdentidad">
+      <div name="tituloTarjetaIdentidad" *ngIf="!!estudianteRecibido">
         <h2>Tarjeta de identidad: <strong>{{estudianteRecibido.tarjetaIdentidad}}</strong></h2>
       </div>
       <div>
@@ -15,9 +15,9 @@
         <input type="text" maxlength="50" formControlName="nombre">
       </div>
     </form>
-    <button name="botonGuardar" *ngIf="!estudianteRecibido.tarjetaIdentidad" (click)="guardar()"
-      [disabled]="estudiante.invalid">Guardar estudiante</button>
-    <button name="botonActualizar" *ngIf="!!estudianteRecibido.tarjetaIdentidad" (click)="actualizar()"
+    <button name="botonGuardar" *ngIf="!estudianteRecibido" (click)="guardar()" [disabled]="estudiante.invalid">Guardar
+      estudiante</button>
+    <button name="botonActualizar" *ngIf="!!estudianteRecibido" (click)="actualizar()"
       [disabled]="estudiante.invalid">Actualizar nombre estudiante</button>
     <button (click)="cancelar()">Cancelar</button>
   </section>

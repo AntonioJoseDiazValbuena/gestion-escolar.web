@@ -1,0 +1,12 @@
+<div>
+  <h1>Registrar una nueva materia</h1>
+  <section>
+    <form [formGroup]="materia">
+      <div>
+        <input type="text" maxlength="50" formControlName="nombre" />
+      </div>
+    </form>
+    <button [disabled]="materia.invalid" (click)="guardar()">Guardar materia</button>
+    <button (click)="cancelar()">Cancelar</button>
+  </section>
+</div>

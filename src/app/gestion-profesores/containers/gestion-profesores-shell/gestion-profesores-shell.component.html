@@ -1,11 +1,14 @@
 <button routerLink="../">Volver al menú principal</button>
 <app-gestion-profesores-listado *ngIf="(nuevoOEditando$ | async) === false && (editandoMaterias$ | async) === false"
   (nuevoProfesor)="nuevoProfesor()" (eliminarGrupo)="eliminarGrupo($event)" (removerProfesor)="removerProfesor($event)"
-  (modificarNombre)="modificarNombre($event)" (registrarNuevaMateria)="registrarNuevaMateria($event)">
+  (modificarNombre)="modificarNombre($event)" (registrarNuevaMateria)="registrarNuevaMateria($event)"
+  [profesores]="profesores$ | async">
 </app-gestion-profesores-listado>
 <app-gestion-profesores-formulario *ngIf="nuevoOEditando$ | async" (guardarProfesor)="guardarProfesor($event)"
-  (actualizarProfesor)="actualizarProfesor($event)" (cancelarRegistro)="cancelarRegistros()">
+  (actualizarProfesor)="actualizarProfesor($event)" (cancelarRegistro)="cancelarRegistros()"
+  [profesorRecibido]="profesorAModificar$ | async">
 </app-gestion-profesores-formulario>
-<app-gestion-profesores-materias [materias]="materias$ | async" [profesorRecibido]="profesorAAgregarMateria$ | async"
-  (agregarMateria)="agregarMateria($event)" (cancelarRegistroMateria)="cancelarRegistros()">
+<app-gestion-profesores-materias *ngIf="editandoMaterias$ | async" [materias]="materias$ | async"
+  [profesorRecibido]="profesorAAgregarMateria$ | async" (agregarMateria)="agregarMateria($event)"
+  (cancelarRegistroMateria)="cancelarRegistros()">
 </app-gestion-profesores-materias>

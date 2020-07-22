@@ -1,0 +1,40 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+.button{
+  margin: 0 1em;
+  max-width: 200px;
+  border-radius:4px;
+  padding: 10px 30px;
+  color: #fff;
+  border: none;
+  text-align:center;
+  box-shadow: 2px 2px 8px #685CB1;
+  font-weight: 500;
+  background-color: #9381FF;
+}
+
+.button:hover{
+  background-color:#685CB1;
+}
+
+.gestion{
+  margin-top: 2em;
+  text-align:center;
+  align-items:center;
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px #eee;
+}
+
+h3{
+  margin-bottom: 3em;
+}
+
+.navegacion{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}

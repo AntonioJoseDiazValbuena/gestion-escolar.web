@@ -1,6 +1,7 @@
 <div>
   <h1>Cambiar las notas para la materia '{{notasRecibidas.grupo.materia.nombre}}' del estudiante
-    '{{notasRecibidas.estudiante.nombre}}'</h1>
+    '{{estudianteRecibido.nombre}}'</h1>
+  <h2>Profesor de la materia: {{notasRecibidas.grupo.profesor.nombre}}</h2>
   <section>
     <form [formGroup]="notas">
       <div>

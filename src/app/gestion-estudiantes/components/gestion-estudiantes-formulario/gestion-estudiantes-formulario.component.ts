@@ -9,7 +9,7 @@ import { Grupos, Grupo } from 'src/app/shared/shared.models';
   styleUrls: ['./gestion-estudiantes-formulario.component.scss']
 })
 export class GestionEstudiantesFormularioComponent implements OnInit, OnChanges {
-  @Input() estudianteRecibido = {} as Estudiante;
+  @Input() estudianteRecibido: Estudiante;
   @Output() guardarEstudiante = new EventEmitter<Estudiante>();
   @Output() actualizarEstudiante = new EventEmitter<Estudiante>();
   @Output() cancelarRegistro = new EventEmitter<void>();
