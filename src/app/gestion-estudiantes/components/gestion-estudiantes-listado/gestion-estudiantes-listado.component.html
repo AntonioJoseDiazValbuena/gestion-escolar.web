@@ -1,31 +1,34 @@
-<div>
+<div class="container">
   <section>
     <h1>Gestión de estudiantes</h1>
-    <button (click)="nuevo()">Registrar estudiante</button>
+    <button class="button" (click)="nuevo()">Registrar estudiante</button>
   </section>
   <section>
-    <div>
-      <div>Tarjeta de identidad del estudiante</div>
-      <div>Nombre del estudiante</div>
-      <div>Materias, notas y profesores</div>
+    <div class="card-table-titles">
+      <div class="card-title card-title-tarjeta">Tarjeta de identidad del estudiante</div>
+      <div class="card-title card-title-estudiante">Nombre del estudiante</div>
+      <div class="card-title card-title-materias">Materias, notas y profesores</div>
+      <div class="card-title card-title-botones"></div>
     </div>
-    <div *ngFor="let estudiante of estudiantes">
-      <div>{{estudiante.tarjetaIdentidad}}</div>
-      <div>{{estudiante.nombre}}</div>
-      <div *ngFor="let materia of estudiante.materias">
-        <div>Materia: {{materia.grupo.materia.nombre}}</div>
-        <div>Profesor: {{materia.grupo.profesor.nombre}}</div>
-        <div>Nota primer periodo: {{materia.calificacionPrimerPeriodo}}</div>
-        <div>Nota segundo periodo: {{materia.calificacionSegundoPeriodo}}</div>
-        <div>Nota tercer periodo: {{materia.calificacionTercerPeriodo}}</div>
-        <button (click)="cambiarNotas(materia, estudiante)">Modificar notas</button>
-        <button (click)="removerMateria(materia)">Remover inscripción a materia</button>
+    <div *ngFor="let estudiante of estudiantes" class="card-table-items">
+      <div class="card-item card-item-tarjeta">{{estudiante.tarjetaIdentidad}}</div>
+      <div class="card-item card-item-estudiante">{{estudiante.nombre}}</div>
+      <div class="card-item card-item-materias">
+        <div class="materia" *ngFor="let materia of estudiante.materias">
+          <div>Materia: {{materia.grupo.materia.nombre}}</div>
+          <div>Profesor: {{materia.grupo.profesor.nombre}}</div>
+          <div>Nota primer periodo: {{materia.calificacionPrimerPeriodo}}</div>
+          <div>Nota segundo periodo: {{materia.calificacionSegundoPeriodo}}</div>
+          <div>Nota tercer periodo: {{materia.calificacionTercerPeriodo}}</div>
+          <button class="button" (click)="cambiarNotas(materia, estudiante)">Modificar notas</button>
+          <button class="button btn-cancelar" (click)="removerMateria(materia)">Remover inscripción a materia</button>
+        </div>
       </div>
-      <div>
-        <button (click)="ingresarAMateria(estudiante)">Ingresar a una materia</button>
+      <div class="card-item card-item-botones">
+        <button class="button" (click)="ingresarAMateria(estudiante)">Ingresar a una materia</button>
+        <button class="button" (click)="cambiarNombre(estudiante)">Cambiar nombre del estudiante</button>
+        <button class="button btn-cancelar" (click)="eliminar(estudiante)">Eliminar estudiante</button>
       </div>
-      <button (click)="cambiarNombre(estudiante)">Cambiar nombre del estudiante</button>
-      <button (click)="eliminar(estudiante)">Eliminar estudiante</button>
     </div>
   </section>
 </div>

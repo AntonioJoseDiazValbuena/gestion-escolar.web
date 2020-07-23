@@ -1,22 +1,29 @@
 <div>
   <section>
     <h1>Gestión de profesores</h1>
-    <button (click)="registrarProfesor()">Registrar profesor</button>
+    <button class="button" (click)="registrarProfesor()">Registrar profesor</button>
   </section>
   <section>
-    <div>
-      <div>Nombre del profesor</div>
-      <div>Materias que enseña</div>
+    <div class="card-table-titles">
+      <div class="card-title card-title-cedula">Cédula del profesor</div>
+      <div class="card-title card-title-profesor">Nombre del profesor</div>
+      <div class="card-title card-title-materias">Materias que enseña</div>
+      <div class="card-title card-title-botones"></div>
     </div>
-    <div *ngFor="let profesor of profesores">
-      <div>{{profesor.nombre}}</div>
-      <div *ngFor="let grupo of profesor.grupos">
-        <div>{{grupo.materia.nombre}}</div>
-        <button (click)="eliminar(grupo)">Eliminar materia</button>
+    <div *ngFor="let profesor of profesores" class="card-table-items">
+      <div class="card-item card-item-cedula">{{profesor.cedula}}</div>
+      <div class="card-item card-item-profesor">{{profesor.nombre}}</div>
+      <div class="card-item card-item-materias">
+        <div class="materia" *ngFor="let grupo of profesor.grupos">
+          <div>{{grupo.materia.nombre}}</div>
+          <button class="button btn-cancelar" (click)="eliminar(grupo)">Eliminar materia</button>
+        </div>
       </div>
-      <button (click)="registrarMateria(profesor)">Agregar materia</button>
-      <button (click)="eliminarProfesor(profesor)">Retirar profesor</button>
-      <button (click)="cambiarNombre(profesor)">Cambiar nombre del profesor</button>
+      <div class="card-item card-item-botones">
+        <button class="button" (click)="registrarMateria(profesor)">Agregar materia</button>
+        <button class="button" (click)="cambiarNombre(profesor)">Cambiar nombre del profesor</button>
+        <button class="button btn-cancelar" (click)="eliminarProfesor(profesor)">Retirar profesor</button>
+      </div>
     </div>
   </section>
 </div>

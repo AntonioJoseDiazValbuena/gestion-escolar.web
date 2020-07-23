@@ -3,38 +3,71 @@
   color: #333;
 }
 
-.button{
-  margin: 0 1em;
-  max-width: 200px;
-  border-radius:4px;
-  padding: 10px 30px;
-  color: #fff;
-  border: none;
-  text-align:center;
-  box-shadow: 2px 2px 8px #685CB1;
-  font-weight: 500;
-  background-color: #9381FF;
+.container {
+    display: flex;
+    height: 100vh;
 }
 
-.button:hover{
-  background-color:#685CB1;
+.gestion {
+  background-color: #f2f2f2;
+    align-self: center;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 2em;
+    text-align: center;
+    padding: 3em 1em;
+    border-radius: 4px;
 }
 
-.gestion{
-  margin-top: 2em;
-  text-align:center;
-  align-items:center;
-  background-color: #fff;
-  padding: 1em;
-  border-radius: 4px;
-  box-shadow: 2px 2px 8px #eee;
+
+p {
+    font-size: 14px;
+    color: #685CB1;
+    margin-bottom: 2em;
 }
 
-h3{
-  margin-bottom: 3em;
+.navegacion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.navegacion{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
+.button {
+    cursor: pointer;
+    margin: 0 1em;
+    max-width: 200px;
+    border-radius: 4px;
+    padding: 10px 30px;
+    color: #fff;
+    border: none;
+    text-align: center;
+    box-shadow: 2px 2px 8px #685CB1;
+    font-weight: 500;
+    justify-self: center;
+    background-color: #9381FF;
+}
+
+.button:hover {
+    background-color: #685CB1;
+}
+
+.button-goback {
+    background-color: #333;
+    box-shadow: 2px 2px 8px #999;
+}
+
+@media only screen and (max-width: 600px) {
+    .gestion {
+        width: 90%;
+    }
+
+    .navegacion {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0 1em;
+    }
+
+    .button-primary,
+    .button-secondary {
+        margin-bottom: 2em;
+    }
 }

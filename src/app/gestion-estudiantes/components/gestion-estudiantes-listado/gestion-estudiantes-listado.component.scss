@@ -1,0 +1,87 @@
+// .container {
+//   display: flex;
+//   height: 100vh;
+// }
+
+h1 {
+ font-family: Arial, Helvetica, sans-serif;
+ color: #685CB1;
+}
+
+.card-table-titles{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #7d7c7c;
+  display: flex;
+	justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid #e8e8e8;
+  .card-title-tarjeta{
+    flex-basis: 25%;
+    max-width: 100%;
+  }
+  .card-title-estudiante{
+    flex-basis: 25%;
+    max-width: 100%;
+  }
+  .card-title-materias{
+    flex-basis: 25%;
+    max-width: 100%;
+  }
+  .card-title-botones{
+    flex-basis: 25%;
+    max-width: 100%;
+  }
+}
+
+.card-table-items{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #7d7c7c;
+  display: flex;
+	justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid #e8e8e8;
+  .card-item-tarjeta{
+    flex-basis: 25%;
+    max-width: 100%;
+  }
+  .card-item-estudiante{
+    flex-basis: 25%;
+    max-width: 100%;
+  }
+  .card-item-materias{
+    flex-basis: 25%;
+    max-width: 100%;
+  }
+  .card-item-botones{
+    flex-basis: 25%;
+    max-width: 100%;
+  }
+}
+
+.materia{
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.btn-cancelar{
+  background-color: #e85d56 !important;
+}
+
+.button {
+  cursor: pointer;
+  margin: 0 1em;
+  max-width: 200px;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  text-align: center;
+  box-shadow: 2px 2px 8px #685CB1;
+  font-weight: 500;
+  justify-self: center;
+  background-color: #9381FF;
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+.button:hover {
+  background-color: #685CB1;
+}

@@ -1,4 +1,4 @@
-<button routerLink="../">Volver al menú principal</button>
+<button class="button" routerLink="../">Volver al menú principal</button>
 <app-gestion-profesores-listado *ngIf="(nuevoOEditando$ | async) === false && (editandoMaterias$ | async) === false"
   (nuevoProfesor)="nuevoProfesor()" (eliminarGrupo)="eliminarGrupo($event)" (removerProfesor)="removerProfesor($event)"
   (modificarNombre)="modificarNombre($event)" (registrarNuevaMateria)="registrarNuevaMateria($event)"

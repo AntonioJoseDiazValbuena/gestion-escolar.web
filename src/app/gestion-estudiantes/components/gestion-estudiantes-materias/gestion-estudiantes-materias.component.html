@@ -1,23 +1,23 @@
 <div>
   <section>
     <h1>Agregar una nueva materia al estudiante {{estudianteRecibido.nombre}}</h1>
-    <h2>Materias registradas</h2>
+    <h3>Materias registradas</h3>
     <div *ngFor="let materia of estudianteRecibido.materias">
-      <div>{{materia.grupo.materia.nombre}} + {{materia.grupo.profesor.nombre}}</div>
+      <div class="materias">{{materia.grupo.materia.nombre}} + {{materia.grupo.profesor.nombre}}</div>
     </div>
     <h1>Registrar materia</h1>
     <form [formGroup]="formulario">
       <label for=""><span class="required">*</span> Materia </label>
-      <div>
-        <select formControlName="idGrupo" required>
+      <div class="registro">
+        <select class="select" formControlName="idGrupo" required>
           <option value="" disabled>--Seleccione--</option>
           <option *ngFor="let opcion of materias" [value]="opcion.id">{{opcion.materia.nombre}} -
             {{opcion.profesor.nombre}}</option>
         </select>
-        <button routerLink="../GestionProfesores">Asignar profesor a materia</button>
+        <button class="button" routerLink="../GestionProfesores">Asignar profesor a materia</button>
       </div>
     </form>
     <button (click)="agregar()" [disabled]="formulario.invalid">Agregar materia</button>
-    <button (click)="cancelar()">Cancelar</button>
+    <button class="button btn-cancelar" (click)="cancelar()">Cancelar</button>
   </section>
 </div>

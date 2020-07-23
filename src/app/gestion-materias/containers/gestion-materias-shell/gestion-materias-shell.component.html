@@ -1,4 +1,4 @@
-<button routerLink="../">Volver al menú principal</button>
+<button class="button" routerLink="../">Volver al menú principal</button>
 <app-gestion-materias-listado *ngIf="(nuevo$ | async) === false" [materias]="materias$ | async"
   (nuevaMateria)="nuevaMateria()" (eliminarMateria)="eliminarMateria($event)">
 </app-gestion-materias-listado>

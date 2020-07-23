@@ -1,0 +1,53 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #7d7c7c;
+}
+
+h1, h2 {
+ font-family: Arial, Helvetica, sans-serif;
+ color: #685CB1;
+}
+
+.tarjeta{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #685CB1;
+}
+
+.input{
+  margin-bottom: 1em;
+  input[type=number] {
+    height: 32px;
+    padding: 4px 9px;
+    box-sizing: border-box;
+    font-size: 13px;
+    border: 1px solid #e8e8e8;
+    margin: 0 !important;
+    border-radius: 4px;
+    line-height: 30px;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.btn-cancelar{
+  background-color: #e85d56 !important;
+}
+
+.button {
+  cursor: pointer;
+  margin: 0 1em;
+  max-width: 200px;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  text-align: center;
+  box-shadow: 2px 2px 8px #685CB1;
+  font-weight: 500;
+  justify-self: center;
+  background-color: #9381FF;
+}
+
+.button:hover {
+  background-color: #685CB1;
+}

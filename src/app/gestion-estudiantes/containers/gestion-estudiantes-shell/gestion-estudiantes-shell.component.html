@@ -1,4 +1,4 @@
-<button routerLink="../">Volver al menú principal</button>
+<button class="button" routerLink="../">Volver al menú principal</button>
 <app-gestion-estudiantes-listado
   *ngIf="(nuevoOEditando$ | async) === false && (editandoNotas$ | async) === false && (editandoMaterias$ | async) === false"
   [estudiantes]="estudiantes$ | async" (modificarNotas)="modificarNotas($event)"

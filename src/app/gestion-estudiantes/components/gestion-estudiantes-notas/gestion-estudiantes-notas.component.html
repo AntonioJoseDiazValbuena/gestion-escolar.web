@@ -5,21 +5,21 @@
   <section>
     <form [formGroup]="notas">
       <div>
-        <div>
+        <div class="input">
           <label> Nota del primer periodo </label>
           <input type="number" max="10" formControlName="calificacionPrimerPeriodo">
         </div>
-        <div>
+        <div class="input">
           <label> Nota del segundo periodo </label>
           <input type="number" max="10" formControlName="calificacionSegundoPeriodo">
         </div>
-        <div>
+        <div class="input">
           <label> Nota del tercer periodo </label>
           <input type="number" max="10" formControlName="calificacionTercerPeriodo">
         </div>
       </div>
     </form>
-    <button (click)="guardar()">Guardar notas</button>
-    <button (click)="cancelar()">Cancelar</button>
+    <button class="button" (click)="guardar()">Guardar notas</button>
+    <button class="button btn-cancelar" (click)="cancelar()">Cancelar</button>
   </section>
 </div>
